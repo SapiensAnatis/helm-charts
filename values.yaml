@@ -1,0 +1,117 @@
+# Default values for dragalia-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: sapiensanatis/dragalia-api
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+aspnet:
+  logs:
+    # The folder to save logs to
+    folder: /dragalia-api/logs
+    # The size of the log volume
+    maxSize: 5Gi
+    # How many log files to retain
+    retainedFileCount: 31
+    # When to roll over log files
+    rollingInterval: Day
+  secret:
+    # Pepper string to use for hashed passwords
+    hashSalt: dragalia
+    # Token to require when performing savefile import/delete
+    developerToken: token
+  redis:
+    # Login session key expiry time in minutes
+    sessionExpiryTime: 60
+    # Dungeon (i.e. quest) session key expiry time in minutes
+    dungeonExpiryTime: 60
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations:
+    kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+    
+redis:
+  auth:
+    enabled: false
+  volumePermissions:
+    enabled: true
+
+# Postgres password. Should be changed from the default.
+postgresPassword: midgardsormr
+
+postgresql:
+  auth:
+    existingSecret: postgres-secret
+  volumePermissions:
+    enabled: true
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
