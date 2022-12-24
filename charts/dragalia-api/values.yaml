@@ -15,6 +15,10 @@ nameOverride: ""
 fullnameOverride: ""
 
 aspnet:
+  # ASPNETCORE_ENVIRONMENT env variable.
+  # If Staging or Develop, the databse will be automatically migrated at startup.
+  # For Production it won't be and a manual migration is required.
+  environment: Staging
   logs:
     # The folder to save logs to
     folder: /dragalia-api/logs
