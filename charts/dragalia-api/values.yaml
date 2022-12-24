@@ -61,7 +61,7 @@ redis:
     enabled: true
 
 # Postgres password. Should be changed from the default.
-postgresPassword: midgardsormr
+postgresPassword: midgardsormr2
 
 postgresql:
   auth:
