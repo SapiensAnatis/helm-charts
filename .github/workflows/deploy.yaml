@@ -19,5 +19,5 @@ jobs:
           script_stop: true
           script: |
             cd /helm
-            helm repo update github
-            helm upgrade -f values.yaml dragalia-api github/dragalia-api
+            helm repo update sapiensanatis
+            helm upgrade -f values.yaml dragalia-api sapiensanatis/dragalia-api
