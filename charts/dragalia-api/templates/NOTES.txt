@@ -1,8 +1,8 @@
-1. Get the application URL by running these commands:
+1. Ensure that the following URL matches your domain and is reachable:
 {{- if .Values.ingress.enabled }}
 {{- range $host := .Values.ingress.hosts }}
   {{- range .paths }}
-  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ $host.host }}{{ .path }}
+  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ $host.host }}/health
   {{- end }}
 {{- end }}
 {{- else if contains "NodePort" .Values.service.type }}

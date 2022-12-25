@@ -39,10 +39,8 @@ aspnet:
     # Dungeon (i.e. quest) session key expiry time in minutes
     dungeonExpiryTime: 60
 
-service:
-  type: ClusterIP
-  port: 80
 
+# Ingress settings. Customize as appropriate to your domain and TLS setup
 ingress:
   enabled: true
   className: "traefik"
@@ -64,14 +62,16 @@ redis:
   volumePermissions:
     enabled: true
 
-# Postgres password. Should be changed from the default.
-postgresPassword: midgardsormr2
-
 postgresql:
   auth:
-    existingSecret: postgres-secret
+    # Postgres password. Should be changed from the default.
+    postgresPassword: midgardsormr2
   volumePermissions:
     enabled: true
+
+service:
+  type: ClusterIP
+  port: 80
 
 serviceAccount:
   # Specifies whether a service account should be created

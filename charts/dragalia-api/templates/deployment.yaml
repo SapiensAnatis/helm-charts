@@ -44,6 +44,7 @@ spec:
               name: config
               subPath: "appsettings.json"
           livenessProbe:
+            initialDelaySeconds: 20
             httpGet:
               path: /health
               port: http
@@ -63,13 +64,13 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: {{ include "dragalia-api.fullname" . }}-postgresql
                   key: postgres-password
                   optional: false
             - name: DEVELOPER_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "dragalia-api.fullname" . }}
+                  name: {{ include "dragalia-api.fullname" . }}-aspnet
                   key: developerToken
                   optional: false
       {{- with .Values.nodeSelector }}
