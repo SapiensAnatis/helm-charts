@@ -38,6 +38,15 @@ aspnet:
     sessionExpiryTime: 60
     # Dungeon (i.e. quest) session key expiry time in minutes
     dungeonExpiryTime: 60
+  auth:
+    # Expected issuer of login JWTs
+    tokenIssuer: LukeFZ
+    # Expected audience of login JWTs
+    tokenAudience: baas-Id
+    # URL of login server (to fetch jwks.json)
+    baasUrl: https://baas-dev.lukefz.xyz
+    # Enable legacy internal login flow (renders above settings irrelevant)
+    useLegacyLogin: false
 
 
 # Ingress settings. Customize as appropriate to your domain and TLS setup

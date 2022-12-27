@@ -51,6 +51,23 @@
                             "minimum": 1
                         }
                     }
+                },
+                "auth": {
+                    "type": "object",
+                    "properties": {
+                        "tokenIssuer": {
+                            "type": "string"
+                        },
+                        "tokenAudience": {
+                            "type": "string"
+                        },
+                        "baasUrl": {
+                            "type": "string"
+                        },
+                        "useLegacyLogin": {
+                            "type": "boolean"
+                        }
+                    }   
                 }
             }
         },
