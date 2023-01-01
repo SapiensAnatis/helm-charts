@@ -47,7 +47,7 @@ aspnet:
     # Expected audience of login JWTs
     tokenAudience: baas-Id
     # URL of login server (to fetch jwks.json)
-    baasUrl: https://baas-dev.lukefz.xyz
+    baasUrl: https://baas.lukefz.xyz
   dragalipatch:
     # Mode to send to Dragalipatch
     mode: "RAW"
