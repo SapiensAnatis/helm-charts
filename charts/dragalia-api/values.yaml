@@ -30,6 +30,7 @@ aspnet:
     rollingInterval: Day
   secret:
     # Pepper string to use for hashed passwords
+    # Not used if BaaS login is enabled
     hashSalt: dragalia
     # Token to require when performing savefile import/delete
     developerToken: token
@@ -39,14 +40,17 @@ aspnet:
     # Dungeon (i.e. quest) session key expiry time in minutes
     dungeonExpiryTime: 60
   auth:
+    # Use the new login flow relying on an external service
+    useBaasLogin: true
     # Expected issuer of login JWTs
     tokenIssuer: LukeFZ
     # Expected audience of login JWTs
     tokenAudience: baas-Id
     # URL of login server (to fetch jwks.json)
     baasUrl: https://baas-dev.lukefz.xyz
-    # Enable legacy internal login flow (renders above settings irrelevant)
-    useLegacyLogin: false
+  dragalipatch:
+    # Mode to send to Dragalipatch
+    mode: "RAW"
 
 
 # Ingress settings. Customize as appropriate to your domain and TLS setup

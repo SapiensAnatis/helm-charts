@@ -13,12 +13,6 @@ data:
                     "Args": {
                         "expression": "EndsWith(RequestPath, '/health') and StatusCode=200"
                     }
-                },
-                {
-                    "Name": "ByExcluding",
-                    "Args": {
-                        "expression": "EndsWith(RequestPath, '/analytics/events/config') and StatusCode=404"
-                    }
                 }
             ],
             "MinimumLevel": {
@@ -53,14 +47,18 @@ data:
             "RedisHost": "{{ include "dragalia-api.fullname" . }}-redis-master",
             "PostgresHost": "{{ include "dragalia-api.fullname" . }}-postgresql"
         },
-        "DragaliaAuth": {
+        "Login": {
+            "UseBaasLogin": {{ .Values.aspnet.auth.useBaasLogin }}
+        },
+        "Baas": {
             "TokenIssuer": "{{ .Values.aspnet.auth.tokenIssuer }}",
             "TokenAudience": "{{ .Values.aspnet.auth.tokenAudience }}",
-            "BaasUrl": "{{ .Values.aspnet.auth.baasUrl }}",
-            "UseLegacyLogin": {{ .Values.aspnet.auth.useLegacyLogin }}
+            "BaasUrl": "{{ .Values.aspnet.auth.url }}"
+        },
+        "Dragalipatch": {
+            "Mode": "{{ .Values.aspnet.dragalipatch.mode }}"
         },
         "HashSalt": "{{ .Values.aspnet.secret.hashSalt }}",
         "SessionExpiryTimeMinutes": {{ .Values.aspnet.redis.sessionExpiryTime }},
-        "DungeonExpiryTimeMinutes": {{ .Values.aspnet.redis.dungeonExpiryTime }}
+        "DungeonExpiryTimeMinutes": {{ .Values.aspnet.redis.dungeonExpiryTime }},
     }
-  
