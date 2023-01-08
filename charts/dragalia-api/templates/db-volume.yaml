@@ -1,0 +1,18 @@
+{{- if .Values.postgresqlBackup.enabled }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ include "dragalia-api.fullname" . }}-postgresql-backup
+  labels:
+    type: local
+spec:
+  claimRef:
+    name: {{ include "dragalia-api.fullname" . }}-postgresql-backup
+  storageClassName: manual
+  capacity:
+    storage: {{ .Values.postgresqlBackup.maxSize }}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: {{ .Values.postgresqlBackup.path }}
+{{- end }}

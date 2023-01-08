@@ -7,8 +7,6 @@ replicaCount: 1
 image:
   repository: sapiensanatis/dragalia-api
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -90,6 +88,16 @@ postgresql:
     postgresPassword: midgardsormr2
   volumePermissions:
     enabled: true
+    
+postgresqlBackup:
+  # Enable postgres backup
+  enabled: true
+  # Schedule for backup cron job
+  cron: 0 12 * * *
+  # Backup volume size
+  maxSize: "10Gi"
+  # Backup volume host path
+  path: /dragalia-api/db-backup
 
 service:
   type: ClusterIP
