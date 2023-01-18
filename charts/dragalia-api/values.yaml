@@ -29,7 +29,7 @@ aspnet:
     # When to roll over log files. Will also roll if >1GB.
     rollingInterval: Day
     # Minimum log level
-    level: Information # TODO: Configurable EFCore/ASP.NET logging overrides (currently always 'Warning')
+    minimumLevel: Information # TODO: Configurable EFCore/ASP.NET logging overrides (currently always 'Warning')
   secret:
     # Pepper string to use for hashed passwords
     # Not used if BaaS login is enabled
