@@ -28,6 +28,8 @@ aspnet:
     retainedFileCount: 31
     # When to roll over log files
     rollingInterval: Day
+    # Minimum log level
+    level: Information # TODO: Configurable EFCore/ASP.NET logging overrides (currently always 'Warning')
   secret:
     # Pepper string to use for hashed passwords
     # Not used if BaaS login is enabled

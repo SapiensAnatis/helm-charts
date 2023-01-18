@@ -6,33 +6,13 @@ data:
   appsettings.json: |+
     {
         "Serilog": {
-            "Using": [ "Serilog.Expressions" ],
-            "Filter": [
-                {
-                    "Name": "ByExcluding",
-                    "Args": {
-                        "expression": "EndsWith(RequestPath, '/health') and StatusCode=200"
-                    }
-                }
-            ],
             "MinimumLevel": {
-                "Default": "Information",
-                "Override": {
-                    "Microsoft.AspNetCore": "Warning",
-                    "Microsoft.EntityFrameworkCore": "Warning"
-                }
+                "Default": "{{ .Values.aspnet.logs.minimumLevel }}",
             },
             "WriteTo": [
                 {
-                    "Name": "Console",
-                    "Args": {
-                        "outputTemplate": "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3} {SourceContext}][{RequestId}][{DeviceAccountId}] {Message:l}{NewLine}{Exception}"
-                    }
-                },
-                {
                     "Name": "File",
                     "Args": {
-                        "outputTemplate": "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3} {SourceContext}][{RequestId}][{DeviceAccountId}] {Message:l}{NewLine}{Exception}",
                         "path": "logs/dragalia-api_.log",
                         "rollingInterval": "{{ .Values.aspnet.logs.rollingInterval }}",
                         "rollOnFileSizeLimit": true,

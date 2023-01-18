@@ -25,6 +25,10 @@
                         "rollingInterval": {
                             "type": "string",
                             "enum": ["Infinite", "Year", "Month", "Day", "Hour", "Minute"]
+                        },
+                        "level": {
+                            "type": "string",
+                            "enum": ["None", "Critical", "Error", "Warning", "Information", "Debug", "Trace"]
                         }
                     }
                 },
