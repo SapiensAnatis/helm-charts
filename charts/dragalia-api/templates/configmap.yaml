@@ -11,6 +11,9 @@ data:
             },
             "WriteTo": [
                 {
+                    "Name": "Console"
+                },
+                {
                     "Name": "File",
                     "Args": {
                         "path": "logs/dragalia-api_.log",
