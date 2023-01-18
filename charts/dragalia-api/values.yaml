@@ -24,9 +24,9 @@ aspnet:
     folder: /dragalia-api/logs
     # The size of the log volume
     maxSize: 5Gi
-    # How many log files to retain
+    # How many log files to retain.
     retainedFileCount: 31
-    # When to roll over log files
+    # When to roll over log files. Will also roll if >1GB.
     rollingInterval: Day
     # Minimum log level
     level: Information # TODO: Configurable EFCore/ASP.NET logging overrides (currently always 'Warning')
