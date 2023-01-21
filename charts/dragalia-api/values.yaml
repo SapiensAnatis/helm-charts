@@ -54,6 +54,13 @@ aspnet:
     # Mode to send to Dragalipatch
     mode: "RAW"
 
+seq:
+  # Enable logging to Seq
+  enabled: true
+  # Seq hostname
+  hostname: changeme
+  # Seq API key
+  apiKey: changeme
 
 # Ingress settings. Customize as appropriate to your domain and TLS setup
 ingress:

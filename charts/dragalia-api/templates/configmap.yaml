@@ -23,6 +23,16 @@ data:
                         "retainedFileCountLimit": {{ .Values.aspnet.logs.retainedFileCount }}
                     }
                 }
+                {{- if .Values.seq.enabled }},
+                {
+                    "Name": "Seq",
+                    "Args": {
+                        "serverUrl": "{{ .Values.seq.hostname }}"
+                        "apiKey": "{{ .Values.seq.apiKey }}",
+                        "restrictedToMinimumLevel": "Verbose"
+                    }
+                }
+                {{- end }}
             ]
         },
         "AllowedHosts": "*",
