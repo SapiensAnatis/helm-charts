@@ -27,7 +27,7 @@ data:
                 {
                     "Name": "Seq",
                     "Args": {
-                        "serverUrl": "{{ .Values.seq.hostname }}"
+                        "serverUrl": "{{ .Values.seq.hostname }}",
                         "apiKey": "{{ .Values.seq.apiKey }}",
                         "restrictedToMinimumLevel": "Verbose"
                     }
