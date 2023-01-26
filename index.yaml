@@ -3,6 +3,23 @@ entries:
   dragalia-api:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-01-26T18:00:21.862910573Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~12.1.6
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~17.4.0
+    description: A Helm chart for the Dragalia Lost server emulator
+    digest: 992633cd685621ee4c13cc9dd06e39ebe6bf4abfbe7434020dabac41d4df595e
+    name: dragalia-api
+    type: application
+    urls:
+    - https://github.com/SapiensAnatis/helm-charts/releases/download/dragalia-api-1.2.2/dragalia-api-1.2.2.tgz
+    version: 1.2.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-01-26T17:54:54.181941914Z"
     dependencies:
     - name: postgresql
