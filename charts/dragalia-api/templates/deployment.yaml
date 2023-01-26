@@ -39,7 +39,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - mountPath: "/app/logs"
-              name: log
+              name: logs
             - mountPath: "/app/appsettings.{{ .Values.aspnet.environment }}.json"
               name: config
               subPath: "appsettings.json"
@@ -86,9 +86,9 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: log
+        - name: logs
           persistentVolumeClaim:
-            claimName: {{ include "dragalia-api.fullname" . }}
+            claimName: {{ include "dragalia-api.fullname" . }}-logs
         - name: config
           configMap:
             name: {{ include "dragalia-api.fullname" . }}
