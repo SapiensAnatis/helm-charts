@@ -21,7 +21,7 @@ aspnet:
     # The folder to save logs to
     path: /dragalia-api/logs
     # The size of the log volume
-    maxSize: 2Gi
+    maxSize: 5Gi
     # How many log files to retain.
     retainedFileCount: 31
     # When to roll over log files. Will also roll if >1GB.
