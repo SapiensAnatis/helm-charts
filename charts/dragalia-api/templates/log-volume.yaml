@@ -7,10 +7,10 @@ metadata:
 spec:
   claimRef:
     name: {{ include "dragalia-api.fullname" . }}-logs
-  storageClassName: manual
+  storageClassName: "standard"
   capacity:
     storage: {{ .Values.aspnet.logs.maxSize }}
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: {{ .Values.aspnet.logs.folder }}
+    path: {{ .Values.aspnet.logs.folder | quote }}

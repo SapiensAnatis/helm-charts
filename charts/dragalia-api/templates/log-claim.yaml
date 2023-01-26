@@ -4,7 +4,7 @@ metadata:
   name: {{ include "dragalia-api.fullname" . }}-logs
 spec:
   volumeName: {{ include "dragalia-api.fullname" . }}-logs
-  storageClassName: manual
+  storageClassName: "standard"
   accessModes:
     - ReadWriteOnce
   resources:

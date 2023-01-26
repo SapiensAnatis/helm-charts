@@ -21,7 +21,7 @@ aspnet:
     # The folder to save logs to
     folder: /dragalia-api/logs
     # The size of the log volume
-    maxSize: 5Gi
+    maxSize: 2Gi
     # How many log files to retain.
     retainedFileCount: 31
     # When to roll over log files. Will also roll if >1GB.
@@ -93,7 +93,7 @@ postgresqlBackup:
   # Enable postgres backup
   enabled: true
   # Schedule for backup cron job
-  cron: 0 12 * * *
+  cron: "@daily"
   # Backup volume size
   maxSize: "10Gi"
   # Backup volume host path

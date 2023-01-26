@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   name: postgres-backup
 spec:
-  schedule: {{ .Values.postgresqlBackup.cron }}
+  schedule: {{ .Values.postgresqlBackup.cron | quote }}
   jobTemplate:
     spec:
       template:
@@ -13,28 +13,28 @@ spec:
             - name: postgres
               image: postgres:latest
               imagePullPolicy: IfNotPresent
-              command: >
-                pg_dump 
-                --username=postgres 
-                --no-password
-                --format=custom
-                --file=/backups/dragalia-api-$(date +"%Y-%m-%d_%H-%M-%S").bak
-                --host={{ include "dragalia-api.fullname" . }}-postgresql
-                --verbose
+              command: 
+                - pg_dump 
+                - --username=postgres 
+                - --no-password
+                - --format=custom
+                - --file=/backups/dragalia-api-$(date +"%Y-%m-%d_%H-%M-%S").bak
+                - --host={{ include "dragalia-api.fullname" . }}-postgresql
+                - --verbose
               volumeMounts:
                 - name: password
                   mountPath: ~/.pgpassword
                   readOnly: true
                 - name: data
                   mountPath: /backups
-              restartPolicy: Never
-        volumes:
-          - name: password
-            secret:
-              secretName: {{ include "dragalia-api.fullname" . }}-postgresql
-              key: postgres-password
-              optional: false
-          - name: data
-            persistentVolumeClaim:
-              claimName: {{ include "dragalia-api.fullname" . }}-postgresql-backup
+          restartPolicy: Never
+          volumes:
+            - name: password
+              secret:
+                secretName: {{ include "dragalia-api.fullname" . }}-postgresql
+                key: postgres-password
+                optional: false
+            - name: data
+              persistentVolumeClaim:
+                claimName: {{ include "dragalia-api.fullname" . }}-postgresql-backup
 {{- end }}
