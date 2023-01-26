@@ -22,19 +22,18 @@ spec:
                 - --host={{ include "dragalia-api.fullname" . }}-postgresql
                 - --verbose
               volumeMounts:
-                - name: password
-                  mountPath: ~/.pgpassword
-                  readOnly: true
                 - name: data
                   mountPath: /backups
+              env:
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ include "dragalia-api.fullname" . }}-postgresql
+                      key: postgres-password
+                      optional: false
           restartPolicy: Never
           volumes:
-            - name: password
-              secret:
-                secretName: {{ include "dragalia-api.fullname" . }}-postgresql
-                key: postgres-password
-                optional: false
             - name: data
               persistentVolumeClaim:
-                claimName: {{ include "dragalia-api.fullname" . }}-postgresql-backup
+                claimName: {{ include "dragalia-api.fullname" . }}-db-backup
 {{- end }}
