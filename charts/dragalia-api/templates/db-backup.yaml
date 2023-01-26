@@ -14,13 +14,17 @@ spec:
               image: postgres:latest
               imagePullPolicy: IfNotPresent
               command: 
-                - pg_dump 
-                - --username=postgres 
-                - --no-password
-                - --format=custom
-                - --file=/backups/dragalia-api-$(date +"%Y-%m-%d_%H-%M-%S").bak
-                - --host={{ include "dragalia-api.fullname" . }}-postgresql
-                - --verbose
+                - sh
+                - -c
+                - >
+                  echo Connecting to host {{ include "dragalia-api.fullname" . }}-postgresql;
+                  pg_dump 
+                  --username=postgres 
+                  --no-password
+                  --format=custom
+                  --file=/backups/dragalia-api-$(date +"%Y-%m-%d_%H-%M-%S").bak
+                  --host={{ include "dragalia-api.fullname" . }}-postgresql
+                  --verbose
               volumeMounts:
                 - name: data
                   mountPath: /backups
