@@ -19,7 +19,7 @@ aspnet:
   environment: Staging
   logs:
     # The folder to save logs to
-    folder: /dragalia-api/logs
+    path: /dragalia-api/logs
     # The size of the log volume
     maxSize: 2Gi
     # How many log files to retain.

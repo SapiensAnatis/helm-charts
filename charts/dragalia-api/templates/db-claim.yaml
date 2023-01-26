@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "dragalia-api.fullname" . }}-postgresql-backup
+  name: {{ include "dragalia-api.fullname" . }}-db-backup
 spec:
-  volumeName: {{ include "dragalia-api.fullname" . }}-postgresql-backup
-  storageClassName: "standard"
+  volumeName: {{ include "dragalia-api.fullname" . }}-db-backup
+  storageClassName: "manual"
   accessModes:
     - ReadWriteOnce
   resources:

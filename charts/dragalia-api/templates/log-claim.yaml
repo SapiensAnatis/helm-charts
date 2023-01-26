@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "dragalia-api.fullname" . }}-logs
+  name: {{ include "dragalia-api.fullname" . }}
 spec:
-  volumeName: {{ include "dragalia-api.fullname" . }}-logs
-  storageClassName: "standard"
+  volumeName: {{ include "dragalia-api.fullname" . }}
+  storageClassName: "manual"
   accessModes:
     - ReadWriteOnce
   resources:

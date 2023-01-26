@@ -88,7 +88,7 @@ spec:
       volumes:
         - name: logs
           persistentVolumeClaim:
-            claimName: {{ include "dragalia-api.fullname" . }}-logs
+            claimName: {{ include "dragalia-api.fullname" . }}
         - name: config
           configMap:
             name: {{ include "dragalia-api.fullname" . }}

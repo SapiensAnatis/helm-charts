@@ -1,16 +1,17 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: {{ include "dragalia-api.fullname" . }}-logs
+  name: {{ include "dragalia-api.fullname" . }}
   labels:
     type: local
 spec:
   claimRef:
-    name: {{ include "dragalia-api.fullname" . }}-logs
-  storageClassName: "standard"
+    namespace: default
+    name: {{ include "dragalia-api.fullname" . }}
+  storageClassName: "manual"
   capacity:
     storage: {{ .Values.aspnet.logs.maxSize }}
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: {{ .Values.aspnet.logs.folder | quote }}
+    path: {{ .Values.aspnet.logs.path | quote }}
