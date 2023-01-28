@@ -8,19 +8,27 @@ data:
         "Serilog": {
             "MinimumLevel": {
                 "Default": "{{ .Values.aspnet.logs.minimumLevel }}",
+                "Override": {{- .Values.aspnet.logs.overrideMinimumLevel | mustToPrettyJson | indent 16 }}
             },
             "WriteTo": [
                 {
                     "Name": "Console"
                 },
                 {
-                    "Name": "File",
+                    "Name": "Async",
                     "Args": {
-                        "path": "logs/dragalia-api_.log",
-                        "rollingInterval": "{{ .Values.aspnet.logs.rollingInterval }}",
-                        "rollOnFileSizeLimit": true,
-                        "fileSizeLimitBytes": 1000000000,
-                        "retainedFileCountLimit": {{ .Values.aspnet.logs.retainedFileCount }}
+                        "configure": [
+                            {
+                                "Name": "File",
+                                "Args": {
+                                    "path": "logs/dragalia-api_.log",
+                                    "rollingInterval": "{{ .Values.aspnet.logs.rollingInterval }}",
+                                    "rollOnFileSizeLimit": true,
+                                    "fileSizeLimitBytes": 1000000000,
+                                    "retainedFileCountLimit": {{ .Values.aspnet.logs.retainedFileCount }}
+                                }
+                            }
+                        ]
                     }
                 }
                 {{- if .Values.seq.enabled }},

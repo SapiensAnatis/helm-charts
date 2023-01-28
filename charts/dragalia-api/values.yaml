@@ -26,8 +26,11 @@ aspnet:
     retainedFileCount: 31
     # When to roll over log files. Will also roll if >1GB.
     rollingInterval: Day
-    # Minimum log level
-    minimumLevel: Information # TODO: Configurable EFCore/ASP.NET logging overrides (currently always 'Warning')
+    # Global minimum log level
+    minimumLevel: Information
+    # Override minimum levels
+    overrideMinimumLevel:
+      DragaliaAPI: Debug
   secret:
     # Pepper string to use for hashed passwords
     # Not used if BaaS login is enabled
