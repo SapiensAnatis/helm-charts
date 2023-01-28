@@ -18,4 +18,4 @@ jobs:
             export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
             cd /helm
             helm repo update sapiensanatis
-            helm upgrade -f values.yaml dragalia-api sapiensanatis/dragalia-api
+            helm upgrade -f values.yaml dragalia-api sapiensanatis/dragalia-api --wait
