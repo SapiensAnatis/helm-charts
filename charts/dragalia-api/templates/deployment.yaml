@@ -44,10 +44,13 @@ spec:
               name: config
               subPath: "appsettings.json"
           livenessProbe:
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
             httpGet:
               path: /ping
               port: http
           readinessProbe:
+            timeoutSeconds: 5
             httpGet:
               path: /health
               port: http
