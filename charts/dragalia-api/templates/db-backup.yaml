@@ -17,13 +17,13 @@ spec:
                 - sh
                 - -c
                 - >
-                  echo Connecting to host {{ include "dragalia-api.fullname" . }}-postgresql;
+                  echo Connecting to host dragalia-api-postgresql;
                   pg_dump 
                   --username=postgres 
                   --no-password
                   --format=custom
                   --file=/backups/dragalia-api-$(date +"%Y-%m-%d_%H-%M-%S").bak
-                  --host={{ include "dragalia-api.fullname" . }}-postgresql
+                  --host=dragalia-api-postgresql
                   --verbose
               volumeMounts:
                 - name: data
@@ -32,7 +32,7 @@ spec:
                 - name: PGPASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: {{ include "dragalia-api.fullname" . }}-postgresql
+                      name: dragalia-api-postgresql
                       key: postgres-password
                       optional: false
           restartPolicy: Never
