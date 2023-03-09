@@ -6,7 +6,7 @@ metadata:
     type: local
 spec:
   claimRef:
-    namespace: default
+    namespace: {{ .Release.Namespace }}
     name: {{ include "dragalia-api.fullname" . }}
   storageClassName: "manual"
   capacity:

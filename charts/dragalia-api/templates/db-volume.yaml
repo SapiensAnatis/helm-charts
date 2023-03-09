@@ -8,7 +8,7 @@ metadata:
 spec:
   storageClassName: "manual"
   claimRef:
-    namespace: default
+    namespace: {{ .Release.Namespace }}
     name: {{ include "dragalia-api.fullname" . }}-db-backup
   capacity:
     storage: {{ .Values.postgresqlBackup.maxSize }}
