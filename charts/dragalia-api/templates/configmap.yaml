@@ -57,7 +57,8 @@ data:
             "BaasUrl": "{{ .Values.aspnet.auth.baasUrl }}"
         },
         "Dragalipatch": {
-            "Mode": "{{ .Values.aspnet.dragalipatch.mode }}"
+            "Mode": "{{ .Values.aspnet.dragalipatch.mode }}",
+            "CdnUrl": "{{ .Values.aspnet.dragalipatch.cdnUrl }}"
         },
         "HashSalt": "{{ .Values.aspnet.secret.hashSalt }}",
         "Redis": {

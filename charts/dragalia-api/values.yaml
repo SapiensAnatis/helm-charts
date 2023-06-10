@@ -54,6 +54,8 @@ aspnet:
   dragalipatch:
     # Mode to send to Dragalipatch
     mode: "RAW"
+    # Default CDN address
+    cdnUrl: "https://lathna.xyz"
 
 seq:
   # Enable logging to Seq
@@ -78,7 +80,7 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-    
+
 redis:
   auth:
     enabled: false
@@ -91,7 +93,7 @@ postgresql:
     postgresPassword: midgardsormr2
   volumePermissions:
     enabled: true
-    
+
 postgresqlBackup:
   # Enable postgres backup
   enabled: true
@@ -117,10 +119,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -128,7 +132,8 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
