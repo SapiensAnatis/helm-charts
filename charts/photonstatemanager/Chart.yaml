@@ -25,4 +25,4 @@ appVersion: "0.0.0"
 
 dependencies:
   - name: redis-stack-server
-    version: ~0.3.7
+    version: "0.3.7"
