@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "photonstatemanager.fullname" . }}
+data:
+  appsettings.json: |+
+    {
+        "AllowedHosts": "*",
+        "SeqOptions": {
+            "Enabled": {{ .Values.seq.enabled }},
+            "Url": {{ .Values.seq.url | quote }},
+            "Key": {{ .Values.seq.key | quote }}
+        },
+        "ConnectionStrings": {
+            "Redis": "redis-stack-server,abortConnect=false"
+        },
+        "RedisOptions": {
+            "KeyExpiryTimeMins": {{ .Values.redis.expiryTimeMins }}
+        }
+    }
