@@ -1,0 +1,6 @@
+dependencies:
+- name: redis-stack-server
+  repository: https://coffee3p.github.io/helm-redis-stack-final
+  version: 0.3.6
+digest: sha256:137dfaae5c987e5add16e28c8b5541b4b7f90caa9f338485ebc7260fd9486418
+generated: "2023-06-11T21:00:33.6761875+01:00"
