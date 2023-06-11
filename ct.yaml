@@ -3,4 +3,5 @@ chart-dirs:
   - charts
 chart-repos:
   - bitnami=https://charts.bitnami.com/bitnami
+  - redis=https://coffee3p.github.io/helm-redis-stack-final
 helm-extra-args: --timeout 600s
