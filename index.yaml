@@ -443,4 +443,19 @@ entries:
     urls:
     - https://github.com/SapiensAnatis/helm-charts/releases/download/dragalia-api-1.0.1/dragalia-api-1.0.1.tgz
     version: 1.0.1
+  photonstatemanager:
+  - apiVersion: v2
+    appVersion: 0.0.0
+    created: "2023-06-11T20:06:43.844722727Z"
+    dependencies:
+    - name: redis-stack-server
+      repository: https://coffee3p.github.io/helm-redis-stack-final
+      version: 0.3.6
+    description: Photon state manager using Redis
+    digest: e4c2292375279ddbaa4d308bf3be1ad5e21cf3b27455b8495aeea968d698148b
+    name: photonstatemanager
+    type: application
+    urls:
+    - https://github.com/SapiensAnatis/helm-charts/releases/download/photonstatemanager-0.1.0/photonstatemanager-0.1.0.tgz
+    version: 0.1.0
 generated: "2022-12-24T03:53:28.833174902Z"
