@@ -56,6 +56,9 @@ aspnet:
     mode: "RAW"
     # Default CDN address
     cdnUrl: "https://lathna.xyz"
+  photon:
+    serverUrl: "photon-server-url.com:5055"
+    stateManagerUrl: "https://photon-statemanager-url.com"
 
 seq:
   # Enable logging to Seq

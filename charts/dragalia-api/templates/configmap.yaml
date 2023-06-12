@@ -64,5 +64,9 @@ data:
         "Redis": {
             "SessionExpiryTimeMinutes": {{ .Values.aspnet.redis.sessionExpiryTime }},
             "DungeonExpiryTimeMinutes": {{ .Values.aspnet.redis.dungeonExpiryTime }},
+        },
+        "PhotonOptions": {
+            "ServerUrl": "{{ .Values.aspnet.photon.serverUrl }}",
+            "StateManagerUrl": "{{ .Values.aspnet.photon.stateManagerUrl }}"
         }
     }
