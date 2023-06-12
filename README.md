@@ -7,3 +7,4 @@ Deploy any of these charts by adding the repository to Helm: `helm repo add sapi
 Included charts:
 
 - [DragaliaAPI](https://github.com/SapiensAnatis/DragaliaAPI)
+- [PhotonStateManager](https://github.com/SapiensAnatis/Dawnshard/tree/develop/DragaliaAPI.Photon.StateManager)
