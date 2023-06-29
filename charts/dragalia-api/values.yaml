@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: sapiensanatis/dragalia-api
+  repository: ghcr.io/sapiensanatis/dragalia-api
   pullPolicy: Always
 
 imagePullSecrets: []
