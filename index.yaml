@@ -3,6 +3,23 @@ entries:
   dragalia-api:
   - apiVersion: v2
     appVersion: 2.0.1-alpha
+    created: "2023-06-29T23:17:27.561075937Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~12.1.6
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: ~17.4.0
+    description: A Helm chart for the Dragalia Lost server emulator
+    digest: 66a789bd75fccb332d03ee33f6b79fdf2e112d55bd0a37c3e02c543194b0f149
+    name: dragalia-api
+    type: application
+    urls:
+    - https://github.com/SapiensAnatis/helm-charts/releases/download/dragalia-api-1.2.15/dragalia-api-1.2.15.tgz
+    version: 1.2.15
+  - apiVersion: v2
+    appVersion: 2.0.1-alpha
     created: "2023-06-12T20:51:09.037458086Z"
     dependencies:
     - name: postgresql
@@ -461,6 +478,20 @@ entries:
     - https://github.com/SapiensAnatis/helm-charts/releases/download/dragalia-api-1.0.1/dragalia-api-1.0.1.tgz
     version: 1.0.1
   photonstatemanager:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-06-29T23:17:27.680388321Z"
+    dependencies:
+    - name: redis-stack-server
+      repository: https://coffee3p.github.io/helm-redis-stack-final
+      version: 0.3.6
+    description: Photon state manager using Redis
+    digest: 3ee8d848de0c78f3b2757acf6ff4850a8c7bdeb4edc53288c720117760e31d7d
+    name: photonstatemanager
+    type: application
+    urls:
+    - https://github.com/SapiensAnatis/helm-charts/releases/download/photonstatemanager-0.1.1/photonstatemanager-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 0.0.0
     created: "2023-06-11T20:06:43.844722727Z"
