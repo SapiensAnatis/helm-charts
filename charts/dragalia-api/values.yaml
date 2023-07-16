@@ -59,6 +59,7 @@ aspnet:
   photon:
     serverUrl: "photon-server-url.com:5055"
     stateManagerUrl: "https://photon-statemanager-url.com"
+    token: changeme
 
 seq:
   # Enable logging to Seq

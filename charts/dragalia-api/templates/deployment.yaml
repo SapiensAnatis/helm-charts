@@ -76,6 +76,12 @@ spec:
                   name: {{ include "dragalia-api.fullname" . }}-aspnet
                   key: developerToken
                   optional: false
+            - name: PHOTON_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "dragalia-api.fullname" . }}-aspnet
+                  key: photonToken
+                  optional: false
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
