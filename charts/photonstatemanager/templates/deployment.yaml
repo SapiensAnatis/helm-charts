@@ -56,7 +56,11 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             - name: PHOTON_TOKEN
-              value: {{ .Values.photonToken }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "photonstatemanager.fullname" . }}
+                  key: photonToken
+                  optional: false
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
