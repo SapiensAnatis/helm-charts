@@ -54,7 +54,9 @@ data:
         "Baas": {
             "TokenIssuer": "{{ .Values.aspnet.auth.tokenIssuer }}",
             "TokenAudience": "{{ .Values.aspnet.auth.tokenAudience }}",
-            "BaasUrl": "{{ .Values.aspnet.auth.baasUrl }}"
+            "BaasUrl": "{{ .Values.aspnet.auth.baasUrl }}",
+            "ClientId": "{{ .Values.aspnet.auth.clientId }}",
+            "ChallengeString": "{{ .Values.aspnet.auth.challengeString }}"
         },
         "Dragalipatch": {
             "Mode": "{{ .Values.aspnet.dragalipatch.mode }}",

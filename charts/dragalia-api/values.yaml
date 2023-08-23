@@ -51,6 +51,10 @@ aspnet:
     tokenAudience: baas-Id
     # URL of login server (to fetch jwks.json)
     baasUrl: https://baas.lukefz.xyz
+    # Client ID to use for BaaS OAuth on frontend
+    clientId: changeme
+    # Challenge string to use for BaaS OAuth
+    challengeString: challenge
   dragalipatch:
     # Mode to send to Dragalipatch
     mode: "RAW"
