@@ -70,5 +70,9 @@ data:
         "PhotonOptions": {
             "ServerUrl": "{{ .Values.aspnet.photon.serverUrl }}",
             "StateManagerUrl": "{{ .Values.aspnet.photon.stateManagerUrl }}"
+        },
+         "ResourceVersionOptions": {
+            "Android": "{{ .Values.aspnet.resourceVersion.android }}",
+            "Ios": "{{ .Values.aspnet.resourceVersion.ios }}"
         }
     }
