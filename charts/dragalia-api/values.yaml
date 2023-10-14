@@ -67,6 +67,8 @@ aspnet:
   resourceVersion:
     android: "y2XM6giU6zz56wCm"
     ios: "b1HyoeTFegeTexC0"
+  blazor:
+    baseImagePath: ""
 
 seq:
   # Enable logging to Seq

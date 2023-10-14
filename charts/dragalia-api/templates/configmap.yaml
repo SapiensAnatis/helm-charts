@@ -74,5 +74,8 @@ data:
          "ResourceVersionOptions": {
             "Android": "{{ .Values.aspnet.resourceVersion.android }}",
             "Ios": "{{ .Values.aspnet.resourceVersion.ios }}"
+        },
+        "BlazorOptions": {
+            "BaseImagePath": "{{ .Values.aspnet.blazor.baseImagePath }}"
         }
     }
