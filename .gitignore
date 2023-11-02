@@ -1,2 +1,3 @@
 *.tgz
 charts/*/charts
+.idea/

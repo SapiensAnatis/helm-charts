@@ -45,8 +45,8 @@ data:
         },
         "AllowedHosts": "*",
         "ConnectionStrings": {
-            "RedisHost": "dragalia-api-redis-master",
-            "PostgresHost": "dragalia-api-postgresql"
+            "RedisHost": "{{ .Release.Name }}-redis-master",
+            "PostgresHost": "{{ .Release.Name }}-postgresql"
         },
         "Login": {
             "UseBaasLogin": {{ .Values.aspnet.auth.useBaasLogin }}

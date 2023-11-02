@@ -62,13 +62,15 @@ spec:
             - name: ASPNETCORE_URLS
               value: http://+:80
             - name: POSTGRES_USER
-              value: postgres
+              value: {{ .Values.postgresql.auth.username }}
+            - name: POSTGRES_DB
+              value: {{ .Values.postgresql.auth.database }}
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  # Intentionally hardcoded as it does not seem to respect name override
-                  name: dragalia-api-postgresql
-                  key: postgres-password
+                  # This secret is automatically created by the bitnami chart
+                  name: {{ .Release.Name }}-postgresql
+                  key: password
                   optional: false
             - name: DEVELOPER_TOKEN
               valueFrom:

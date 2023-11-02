@@ -14,8 +14,6 @@ fullnameOverride: ""
 
 aspnet:
   # ASPNETCORE_ENVIRONMENT env variable.
-  # If Staging or Develop, the databse will be automatically migrated at startup.
-  # For Production it won't be and a manual migration is required.
   environment: Staging
   logs:
     # The folder to save logs to
@@ -102,8 +100,11 @@ redis:
 
 postgresql:
   auth:
-    # Postgres password. Should be changed from the default.
-    postgresPassword: midgardsormr2
+    database: DragaliaAPI
+    # Change these from the default
+    username: changeme
+    password: changeme
+    postgresPassword: changeme
   volumePermissions:
     enabled: true
 
