@@ -18,7 +18,7 @@ spec:
                 - -c
                 - >
                   echo Connecting to host dragalia-api-postgresql;
-                  pg_dump 
+                  pg_dump {{ .Values.postgresql.auth.database }}
                   --username=postgres 
                   --no-password
                   --format=custom
