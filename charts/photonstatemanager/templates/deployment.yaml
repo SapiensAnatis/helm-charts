@@ -61,6 +61,8 @@ spec:
                   name: {{ include "photonstatemanager.fullname" . }}
                   key: photonToken
                   optional: false
+            - name: ASPNETCORE_URLS
+              value: http://+:80
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
