@@ -582,6 +582,20 @@ entries:
   photonstatemanager:
   - apiVersion: v2
     appVersion: 2.0.0
+    created: "2023-11-15T22:15:39.126121435Z"
+    dependencies:
+    - name: redis-stack-server
+      repository: https://coffee3p.github.io/helm-redis-stack-final
+      version: 0.3.6
+    description: Photon state manager using Redis
+    digest: c96fa7dd2d806efafa1e4467b91cefe7322c7ddfa9dc4a1692f29ad75a6a43ee
+    name: photonstatemanager
+    type: application
+    urls:
+    - https://github.com/SapiensAnatis/helm-charts/releases/download/photonstatemanager-0.2.1/photonstatemanager-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 2.0.0
     created: "2023-07-16T17:11:47.574226847Z"
     dependencies:
     - name: redis-stack-server
