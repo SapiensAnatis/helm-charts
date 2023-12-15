@@ -67,6 +67,10 @@ aspnet:
     ios: "b1HyoeTFegeTexC0"
   blazor:
     baseImagePath: ""
+  events:
+    - id: 22903
+      start: "2023-12-16T06:00:00.000Z"
+      end: "2023-12-26T05:59:59.000Z"
 
 seq:
   # Enable logging to Seq

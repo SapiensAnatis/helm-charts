@@ -65,7 +65,7 @@ data:
         "HashSalt": "{{ .Values.aspnet.secret.hashSalt }}",
         "Redis": {
             "SessionExpiryTimeMinutes": {{ .Values.aspnet.redis.sessionExpiryTime }},
-            "DungeonExpiryTimeMinutes": {{ .Values.aspnet.redis.dungeonExpiryTime }},
+            "DungeonExpiryTimeMinutes": {{ .Values.aspnet.redis.dungeonExpiryTime }}
         },
         "PhotonOptions": {
             "ServerUrl": "{{ .Values.aspnet.photon.serverUrl }}",
@@ -77,5 +77,16 @@ data:
         },
         "BlazorOptions": {
             "BaseImagePath": "{{ .Values.aspnet.blazor.baseImagePath }}"
+        },
+        "EvenOptions": {
+            "EventList": [
+              {{- range .Values.aspnet.events }}
+                {
+                  "Id": {{ .id }},
+                  "Start": {{ .start | quote }},
+                  "End": {{ .end | quote }}
+                }
+              {{- end}}
+            ]
         }
     }
