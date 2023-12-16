@@ -78,7 +78,7 @@ data:
         "BlazorOptions": {
             "BaseImagePath": "{{ .Values.aspnet.blazor.baseImagePath }}"
         },
-        "EvenOptions": {
+        "EventOptions": {
             "EventList": [
               {{- range .Values.aspnet.events }}
                 {
