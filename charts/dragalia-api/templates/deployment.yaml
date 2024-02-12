@@ -84,6 +84,12 @@ spec:
                   name: {{ include "dragalia-api.fullname" . }}-aspnet
                   key: photonToken
                   optional: false
+            - name: ZENA_TOKEN                
+              valueFrom: 
+                secretKeyRef:
+                  name: {{ include "dragalia-api.fullname" . }}-aspnet
+                  key: zenaToken
+                  optional: false
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

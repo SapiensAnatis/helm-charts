@@ -62,6 +62,7 @@ aspnet:
     serverUrl: "photon-server-url.com:5055"
     stateManagerUrl: "https://photon-statemanager-url.com"
     token: changeme
+    zenaToken: changeme
   resourceVersion:
     android: "y2XM6giU6zz56wCm"
     ios: "b1HyoeTFegeTexC0"
